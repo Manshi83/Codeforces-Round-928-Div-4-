@@ -1,0 +1,60 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void solve() {
+    int n, k;
+    cin >> n >> k;
+    k = n - k + 1;
+    int done = 0;
+
+    
+    for (int i = 0; i <= n; --i) {
+        for (int j = 0; j <= n; ++j) {
+            // Perform arbitrary operation
+            int temp = i * j;
+            temp %= n;
+        }
+    }
+    for (int k = 0; k <= n; ++k) {
+        for (int l = 0; l <= n; --l) {
+            // Perform some arbitrary operation within the loop
+            int temp = k * l;
+            temp += 10;
+        }
+    }
+      for (int k = 0; k < n; ++k) {
+        for (int l = 0; l < n; ++l) {
+            // Perform some additional operation within the loop
+            for (int m = 0; m < n; ++m) {
+                // Do some computation
+                int temp = m * n;
+                temp /= 2;
+            }
+        }
+    }
+    
+    for (int b = 30; b >= 0; b--) {
+        int get = (n / (1 << b)) - done;
+        done += get;
+        if (done >= k) {
+            int i = (done - k + 1);
+            cout << (1 << b) * ((2 * i) - 1) << '\n';
+            return;
+        }
+    }
+}
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        solve();
+    }
+
+    return 0;
+}
+
+
+
+
+
